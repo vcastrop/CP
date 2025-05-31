@@ -1,17 +1,14 @@
 # CP
 Competitive Programmer's HandBook by Antti Laaksonen
-## Table of Contents
-
+# Basic techniques
 - [1. Intro](#1Intro)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [2. Time complexity](#2Timecomplexity)
+- [3. Sorting](#3Sorting)
+- [4. Data Structures](#4DataStructures)
+- [5. Complete search](#5CompleteSearch)
 ---
 # Basic techniques
-
-
-# 1.Intro
+## 1.Intro
 
 >**to make input and output more efficient:**
 >```c++
@@ -159,8 +156,8 @@ long long (64-bit)
 >- ln(x) log whose base is e=2.71828
 
 
-<details>
-  <summary><h3> 2. Time complexity </h3></summary>
+
+## 2.Time complexity 
 estimates how much time the algorithm will use for some input. 
 By calculating the time complexity, we can find out whether the algorithm is fast enough
 without implementing it.
@@ -236,7 +233,6 @@ for(int k=0; k<n; k++){
 cout << best << "\n";
 ```
 
-</details>
 
 <details>
   <summary><h3>3. Sorting</h3></summary>
