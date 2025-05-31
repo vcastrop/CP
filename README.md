@@ -6,13 +6,13 @@ Competitive Programmer's HandBook by Antti Laaksonen
 <details>
   <summary> <h3> 1.Intro </h3></summary>
 
-**to make input and output more efficient:**
+<summary><b>to make input and output more efficient:</b></summary>
 ```c++
 ios::sync_with_stdio(0)
 cin.tie(0)
 ```
 
-**reads from input.txt and writes on output.txt:**
+<summary><b>reads from input.txt and writes on output.txt:</b></summary>
 ```c++
 freopen("input.txt", "r", stdin);
 freopen("output.txt", "w", stdout);
@@ -33,7 +33,6 @@ while(cin >> x){
     //code
 }
 ```
-
 **output:**
 ```c++
 int a = 123, b = 467;
@@ -45,9 +44,14 @@ printf("%d %d\n", a, b)
 \n works faster than endl
 
 **working with numbers:**
+<br>
+**int (32-bit)**
+<br>
+**long long (64-bit)**
+
+
 
 </details>
-
 <details>
   <summary><h3> 2. Time complexity </h3></summary>
 
@@ -56,35 +60,35 @@ printf("%d %d\n", a, b)
 </details>
 
 <details>
-  <summary>### 3. Sorting</summary>
+  <summary><h3>3. Sorting</h3></summary>
 
 <!-- Add your notes or content for Sorting here. -->
 
 </details>
 
 <details>
-  <summary>### 4. Data structures</summary>
+  <summary><h3>4. Data Structures</h3></summary>
 
 <!-- Add your notes or content for Data structures here. -->
 
 </details>
 
 <details>
-  <summary>### 5. Complete search</summary>
+  <summary><h3> 5. Complete Search </h3></summary>
 
 <!-- Add your notes or content for Complete search here. -->
 
 </details>
 
 <details>
-  <summary>### 6. Greedy algorithms</summary>
+  <summary><h3>6. Greedy algorithms</h3></summary>
 
 <!-- Add your notes or content for Greedy algorithms here. -->
 
 </details>
 
 <details>
-  <summary>### 7. Dynamic Programming</summary>
+  <summary><h3> 7. Dynamic Programming </h3></summary>
 
 <!-- Add your notes or content for Dynamic Programming here. -->
 
