@@ -7,7 +7,6 @@ Competitive Programmer's HandBook by Antti Laaksonen
 - [4. Data Structures](#4DataStructures)
 - [5. Complete search](#5CompleteSearch)
 ---
-# Basic techniques
 ## 1.Intro
 
 >**to make input and output more efficient:**
@@ -155,7 +154,7 @@ long long (64-bit)
 >- log_u(x)    =  log_k(x)/log_k(u)
 >- ln(x) log whose base is e=2.71828
 
-
+---
 
 ## 2.Time complexity 
 estimates how much time the algorithm will use for some input. 
@@ -163,7 +162,7 @@ By calculating the time complexity, we can find out whether the algorithm is fas
 without implementing it.
 
 >**Calculation Rules**
->- Loops: O(n^k) k nested loops, if the nested loop has dif variable (m) is O(nm)
+>- Loops: O($n^k$) k nested loops, if the nested loop has dif variable (m) is O(nm)
 >- the total time complexity is the largest time complexity of a single phase
 >- Recursion: number of times the function is called and the time complexity of a single call.
 
@@ -173,9 +172,9 @@ without implementing it.
 > 3. O(√n): 
 > 4. O(n): best possible time complexity, goes through the input a constant n of times
 > 5. O(nlog_n): sorts the input
-> 6. O(n^2): two nested loops
-> 7. O(n^3): three nested loops
-> 8. O(2^n): iterates through all subsets of the input elements.
+> 6. O($n^2$): two nested loops
+> 7. O($n^3$): three nested loops
+> 8. O($2^n$): iterates through all subsets of the input elements.
 > 9. O(n!): iterates through all permutations of the input elements.
 
 >**Polynomial**: its time complexity is at most O(n^k)
@@ -197,7 +196,7 @@ NP-hard problems are problems for which no polynomial algorithm i s known
 > given an array of n numbers our task is to calculate the largest possible
 > sum of a sequence of consecutive values in the array. There may be negatives.<br><br>
 
- ***Algorithm 1*** O(n^3)
+ ***Algorithm 1*** O($n^3$)
  ```c++
  int best =  0;
  for (int a=0; a<n; b++){
@@ -211,7 +210,7 @@ NP-hard problems are problems for which no polynomial algorithm i s known
  }
  cout << best << "\n";
 ```
-***Algorithm 2*** O(n^2)
+***Algorithm 2*** O($n^2$)
 ```c++
 int best = 0;
 for(int a=0; a<n; b++){
@@ -234,42 +233,131 @@ cout << best << "\n";
 ```
 
 
-<details>
-  <summary><h3>3. Sorting</h3></summary>
+
+## 3.Sorting
 sorting is a fundamental algorithm design problem. Time complexity O(nlog_n).
 
-> **bubble sort**
+> **bubble sort** 
+>  O($n^2$)<br>go through all elements and put the big ones at the end in each iteration
+
 
 > **merge sort**
+> $O(n log_n)$<br> divide and conquer
 
 > **counting sort**
+> $O(n)$<br>we assume that every element in the array is an integer between 0 and c
 
-> **sorting in c++**
+>**sorting in c++** 
+<br>function sort of the standard library 
+```c++
+//sorting a vector
+vector<int> v = {4,2,5,3,5,8,3};
+sort(v.begin(),v.end()); //sorts in increasing order
+sort(v.rbegin(), v.rend()); //sorts in reverse order
 
-> **binary search** 
+//sorting an array
+int n = 7; //array size
+int a[] = {4,2,5,3,5,8,3};
+sort(a,a+n)
 
-</details>
+//sorting a string
+string s = "monkey";
+sort(s.begin(), s.end());
 
-<details>
-  <summary><h3>4. Data Structures</h3></summary>
+//pairs and tuples are sorted primarily by the first element, secondary the second...
+vector<pair<int,int>> v;
+sort(v.begin(), v.end());
+vector<tuple<int, int, int>> v;
+sort(v.begin(), v.end());
+```
+---
+>**User-defined structs**
+> <br>we have to define comparison operator, for example:
+```c++
+struct P{
+    int x, y;
+    bool operator<(const P &p){
+        if(x != p.x) return x < p.x;
+        else return y < p.y;
+    }
+};
+```
+>**Comparison functions**<br>give and external comparison to the sort function
+```c++
+bool comp(string a , string b) {
+    if (a.size() != b.size()) return a.size < b.size();
+    return a < b;
+};
+sort (v.begin(), v.end(), comp);
+```
+--- 
+> **binary search**
 
-<!-- Add your notes or content for Data structures here. -->
+general method $O(n)$:
+<br>we go through each element in the array
+```c++
+for(int i = 0; i < n; i++) {
+    if (array[i]==x){
+        // x found at index i
+    }
+}
+```
+method 1 $O(nlog_n)$:  
+<br>in a sorted array, we check the middle element and depending on it we terminate, 
+go to the left or to the right.
+```c++
+int a = 0, b = n-1;
+while(a<= b) {
+    int k = (a+b)/2;
+    if (array[k] == x){
+        x found at index k
+    }
+    if (array[k] > x) b = k-1;
+    else a = k+1;
+}
+```
+method 2 $O(log_n)$:
+<br>make jumps and slow the speed when we get closer to the target element
+```c++
+int k = 0;
+for (int b=n/2; b>= 1; b /=2) {
+    while(k+b < n && array[k+b] <= x) k += b;
+}
+if (array[k] == x){
+    //x found at index k
+}
+```
+---
+>**c++ functions** (sorted arrays) 
+> - lower_bound: returns a pointer to the first array element whose value is at least x
+> <br>Ex: finds out whether an array contains an element with value x
+> ```c++
+> auto k = lower_bound(array, array+n, x)-array;
+> if (k < n && array[k] == x){
+>   //x found at index k
+> }      
+>```
+> - upper_bound: returns a pointer to the first array element whose value is larger than x
+> <br>Ex: counts the number of elements whose value is x
+> ```c++
+> auto a = lower_bound(array, array+n, x);
+> auto b = upper_bound(array, array+n, x);
+> cout << b-a << "\n";
+>```
+> - equal_range: returns both above pointers.
+> ```c++
+> auto r = equal_range(array, array+n, x);
+> cout << r.second-r.first << "\n";
+>```
 
-</details>
+>**finding the smallest solution**
 
-<details>
-  <summary><h3> 5. Complete Search </h3></summary>
-
-<!-- Add your notes or content for Complete search here. -->
-
-</details>
-
-<details>
-  <summary><h3>6. Greedy algorithms</h3></summary>
-
-<!-- Add your notes or content for Greedy algorithms here. -->
-
-</details>
+> **finding the maximum value**
+ 
+ 
+## 4. Data Structures
+## 5. Complete Search 
+## 6. Greedy algorithms
 
 <details>
   <summary><h3> 7. Dynamic Programming </h3></summary>
