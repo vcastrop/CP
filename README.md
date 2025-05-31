@@ -1,10 +1,17 @@
 # CP
 Competitive Programmer's HandBook by Antti Laaksonen
+## Table of Contents
+
+- [1. Intro](#1Intro)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 ---
 # Basic techniques
 
-<details>
-  <summary> <h3> 1.Intro </h3></summary>
+
+# 1.Intro
 
 >**to make input and output more efficient:**
 >```c++
@@ -151,7 +158,7 @@ long long (64-bit)
 >- log_u(x)    =  log_k(x)/log_k(u)
 >- ln(x) log whose base is e=2.71828
 
-</details>
+
 <details>
   <summary><h3> 2. Time complexity </h3></summary>
 estimates how much time the algorithm will use for some input. 
