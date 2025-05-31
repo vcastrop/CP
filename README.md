@@ -1,7 +1,7 @@
 # CP
 Competitive Programmer's HandBook by Antti Laaksonen
 ---
-## Basic techniques
+# Basic techniques
 
 <details>
   <summary> <h3> 1.Intro </h3></summary>
@@ -154,15 +154,96 @@ long long (64-bit)
 </details>
 <details>
   <summary><h3> 2. Time complexity </h3></summary>
+estimates how much time the algorithm will use for some input. 
+By calculating the time complexity, we can find out whether the algorithm is fast enough
+without implementing it.
 
-<!-- Add your notes or content for Time complexity here. -->
+>**Calculation Rules**
+>- Loops: O(n^k) k nested loops, if the nested loop has dif variable (m) is O(nm)
+>- the total time complexity is the largest time complexity of a single phase
+>- Recursion: number of times the function is called and the time complexity of a single call.
+
+>**Complexity Classes**
+> 1. O(1): does not depend on the input size
+> 2. O(log_n): halves the input size at each step
+> 3. O(√n): 
+> 4. O(n): best possible time complexity, goes through the input a constant n of times
+> 5. O(nlog_n): sorts the input
+> 6. O(n^2): two nested loops
+> 7. O(n^3): three nested loops
+> 8. O(2^n): iterates through all subsets of the input elements.
+> 9. O(n!): iterates through all permutations of the input elements.
+
+>**Polynomial**: its time complexity is at most O(n^k)
+
+NP-hard problems are problems for which no polynomial algorithm i s known
+>**Estimating efficiency:**
+> <br>before implementing the algorithm, we calculate the time 
+> complexity to  check if it is efficient enough for the problem.<br>
+> | input size | required time complexity |
+> | ----------- | ----------- |
+> | n <=10 | O(n!) |
+> | n <=20 | O(2^n) |
+> | n <=500 | O(n^3) |
+> | n <=1000 | O(n^2) |
+> | n <=1e6 | O(nlog_n) or O(n) |
+> | n is large | O(1) or O(log_n) |
+
+>**Maximum subarray sum**
+> given an array of n numbers our task is to calculate the largest possible
+> sum of a sequence of consecutive values in the array. There may be negatives.<br><br>
+
+ ***Algorithm 1*** O(n^3)
+ ```c++
+ int best =  0;
+ for (int a=0; a<n; b++){
+   for(int b=a; b<n; b++){
+     int sum=0;
+      for(int k=a; k<0b; k++){
+        sum += array[k];
+     }  
+     best =  max(best, sum)
+   }
+ }
+ cout << best << "\n";
+```
+***Algorithm 2*** O(n^2)
+```c++
+int best = 0;
+for(int a=0; a<n; b++){
+    int sum=0;
+    for(int b=a; b<n; b++){
+        sum += array[b];
+        best = max(best,sum);
+    }
+}
+cout << best << "\n";
+```
+***Algorithm 3*** O(n)
+```c++
+int best=0, sum=0;
+for(int k=0; k<n; k++){
+    sum = max(array[k],sum+array[k]);
+    best = max(best, sum);
+}
+cout << best << "\n";
+```
 
 </details>
 
 <details>
   <summary><h3>3. Sorting</h3></summary>
+sorting is a fundamental algorithm design problem. Time complexity O(nlog_n).
 
-<!-- Add your notes or content for Sorting here. -->
+> **bubble sort**
+
+> **merge sort**
+
+> **counting sort**
+
+> **sorting in c++**
+
+> **binary search** 
 
 </details>
 
@@ -195,27 +276,88 @@ long long (64-bit)
 </details>
 
 <details>
-  <summary>### 8. Amortized analysis</summary>
+  <summary><h3> 8. Amortized Analysis </h3></summary>
 
 <!-- Add your notes or content for Amortized analysis here. -->
 
 </details>
 
 <details>
-  <summary>### 9. Range queries</summary>
+  <summary><h3> 9. Range queries </h3></summary>
 
 <!-- Add your notes or content for Range queries here. -->
 
 </details>
 
 <details>
-  <summary>### 10. Bit manipulation</summary>
+  <summary><h3> 10. Bit manipulation </h3></summary>
 
 <!-- Add your notes or content for Bit manipulation here. -->
 
 </details>
 
 ---
-## Graph Algorithms
+# Graph Algorithms
+<details>
+  <summary><h3>11. Basics of graphs</h3></summary>
+</details>
+<details>
+  <summary><h3>12. Graph traversal</h3></summary>
+</details>
+<details>
+  <summary><h3>13. Shortest paths</h3></summary>
+</details>
+<details>
+  <summary><h3>14. Tree algorithms</h3></summary>
+</details>
+<details>
+  <summary><h3>15. Spanning trees</h3></summary>
+</details>
+<details>
+  <summary><h3>16. Directed graphs</h3></summary>
+</details>
+<details>
+  <summary><h3>17. Strong connectivity</h3></summary>
+</details>
+<details>
+  <summary><h3>18.Tree queries</h3></summary>
+</details>
+<details>
+  <summary><h3>19. Paths and circuits</h3></summary>
+</details>
+<details>
+  <summary><h3>20. Flows and cuts</h3></summary>
+</details>
+
 ---
-## Advanced topics
+# Advanced topics
+<details>
+  <summary><h3>21. Number theory</h3></summary>
+</details>
+<details>
+  <summary><h3>22. Combinatorics</h3></summary>
+</details>
+<details>
+  <summary><h3>23. Matrices</h3></summary>
+</details>
+<details>
+  <summary><h3>24. Probability</h3></summary>
+</details>
+<details>
+  <summary><h3>25. game theory</h3></summary>
+</details>
+<details>
+  <summary><h3>26. String Algorithms</h3></summary>
+</details>
+<details>
+  <summary><h3>27. Square root algorithms</h3></summary>
+</details>
+<details>
+  <summary><h3>28. Segment trees revisited</h3></summary>
+</details>
+<details>
+  <summary><h3>29. Geometry</h3></summary>
+</details>
+<details>
+  <summary><h3>30. Sweep line algorithms</h3></summary>
+</details>
