@@ -2,7 +2,7 @@
 Competitive Programmer's HandBook by Antti Laaksonen
 # Basic techniques
 - [1. Intro](#1Intro)
-- [2. Time complexity](#2Timecomplexity)
+- [2. Time complexity](#2Time-complexity)
 - [3. Sorting](#3Sorting)
 - [4. Data Structures](#4DataStructures)
 - [5. Complete search](#5CompleteSearch)
